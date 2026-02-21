@@ -60,13 +60,13 @@ const About = () => {
                             </div>
 
                             <div className="grid grid-cols-2 gap-6 pt-6">
-                                <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50">
-                                    <h3 className="text-3xl font-bold text-primary-600 mb-1">3+</h3>
-                                    <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Years Exp</p>
+                                <div className="p-6 rounded-3xl glass hover:shadow-xl transition-all duration-500 group/card">
+                                    <h3 className="text-4xl font-black text-primary-600 mb-1 group-hover/card:scale-110 transition-transform origin-left">3+</h3>
+                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Years Experience</p>
                                 </div>
-                                <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50">
-                                    <h3 className="text-3xl font-bold text-primary-600 mb-1">10+</h3>
-                                    <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Projects</p>
+                                <div className="p-6 rounded-3xl glass hover:shadow-xl transition-all duration-500 group/card">
+                                    <h3 className="text-4xl font-black text-primary-600 mb-1 group-hover/card:scale-110 transition-transform origin-left">10+</h3>
+                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Core Projects</p>
                                 </div>
                             </div>
 
