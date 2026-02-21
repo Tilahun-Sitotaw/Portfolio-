@@ -48,50 +48,53 @@ const Projects = () => {
                     </a>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.1 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1, duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="group relative overflow-hidden rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 p-1 border border-transparent hover:border-primary-500/20 transition-all duration-500 shadow-sm hover:shadow-2xl"
+                            className="group relative flex flex-col"
                         >
-                            <div className="p-8 h-full bg-white dark:bg-slate-800 rounded-[2.3rem] flex flex-col justify-between">
-                                <div>
-                                    <div className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-2xl w-fit mb-6 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/20 transition-colors">
-                                        {project.icon}
+                            <div className="glass p-1 rounded-[3rem] transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(14,165,233,0.15)] h-full">
+                                <div className="p-8 lg:p-10 h-full rounded-[2.9rem] bg-white dark:bg-slate-900/40 backdrop-blur-3xl flex flex-col">
+                                    <div className="flex justify-between items-start mb-8">
+                                        <div className="p-5 bg-primary-50 dark:bg-primary-900/30 rounded-[1.5rem] group-hover:scale-110 transition-transform duration-500">
+                                            {project.icon}
+                                        </div>
+                                        <div className="flex gap-2">
+                                            {project.tech.slice(0, 3).map((t, i) => (
+                                                <span key={i} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{project.title}</h3>
-                                    <p className="text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
+
+                                    <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-primary-600 transition-colors">{project.title}</h3>
+                                    <p className="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed text-lg flex-grow">
                                         {project.description}
                                     </p>
-                                </div>
-                                <div>
-                                    <div className="flex flex-wrap gap-2 mb-8">
-                                        {project.tech.map((t, i) => (
-                                            <span key={i} className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                                                {t}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <div className="flex gap-4">
+
+                                    <div className="flex items-center gap-4">
                                         <a
                                             href={project.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex-1 py-3 px-6 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold hover:bg-primary-600 dark:hover:bg-primary-500 transition-colors text-center"
+                                            className="flex-1 py-4 px-8 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold hover:bg-primary-600 dark:hover:bg-primary-500 transition-all text-center shadow-lg shadow-black/5 dark:shadow-white/5 active:scale-95"
                                         >
-                                            Live Demo
+                                            View Live
                                         </a>
                                         <a
                                             href="https://github.com/Tilahun-Sitotaw"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="p-3 bg-slate-100 dark:bg-slate-700 rounded-xl text-slate-900 dark:text-slate-100 hover:text-primary-600 transition-colors"
+                                            className="p-4 glass rounded-2xl text-slate-900 dark:text-slate-100 hover:text-primary-600 transition-all border border-slate-200 dark:border-slate-800"
+                                            title="View Code"
                                         >
-                                            <Github size={20} />
+                                            <Github size={24} />
                                         </a>
                                     </div>
                                 </div>
