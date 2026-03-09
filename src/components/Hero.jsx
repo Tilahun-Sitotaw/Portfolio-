@@ -38,11 +38,11 @@ const Hero = () => {
                             Available for Work
                         </motion.div>
                     </div>
-                    <h1 className="text-6xl lg:text-8xl font-extrabold leading-[1.1] mb-8 text-slate-900 dark:text-white tracking-tight">
+                    <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extrabold leading-[1.2] lg:leading-[1.1] mb-6 md:mb-8 text-slate-900 dark:text-white tracking-tight">
                         Building Future <br />
                         <span className="text-gradient">Digital Solutions</span>
                     </h1>
-                    <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 max-w-xl leading-relaxed font-medium">
+                    <p className="text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-8 md:mb-10 max-w-xl leading-relaxed font-medium">
                         I am <span className="text-slate-900 dark:text-white font-bold underline decoration-primary-500/40 decoration-4 underline-offset-4 hover:decoration-primary-500 transition-colors">Tilahun Sitotaw</span>, a visionary developer crafting high-performance full-stack applications and AI-driven systems tailored for modern needs.
                     </p>
 
