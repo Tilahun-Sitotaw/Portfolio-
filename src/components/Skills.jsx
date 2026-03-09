@@ -56,27 +56,30 @@ const Skills = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="p-8 glass rounded-3xl hover-glow transition-all duration-300 group"
+                            className="relative group"
                         >
-                            <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
-                                {category.icon}
-                            </div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{category.title}</h3>
-                            <div className="flex flex-wrap gap-2">
-                                {category.skills.map((skill, si) => (
-                                    <span
-                                        key={si}
-                                        className="px-3 py-1 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 rounded-lg text-sm font-semibold hover:bg-primary-500 hover:text-white dark:hover:bg-primary-500 transition-colors cursor-default"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
+                            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-cyan-500/10 rounded-3xl blur-xl transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+                            <div className="p-8 glass rounded-3xl relative z-10 transition-all duration-500 hover:shadow-[0_10px_40px_-10px_rgba(14,165,233,0.3)] bg-white/80 dark:bg-slate-900/80 h-full flex flex-col">
+                                <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    {category.icon}
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{category.title}</h3>
+                                <div className="flex flex-wrap gap-2 mt-auto pt-4">
+                                    {category.skills.map((skill, si) => (
+                                        <span
+                                            key={si}
+                                            className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-xs font-bold uppercase tracking-wider hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/20 hover:border-primary-500/50 hover:text-primary-600 dark:hover:text-primary-400 transition-all cursor-default"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

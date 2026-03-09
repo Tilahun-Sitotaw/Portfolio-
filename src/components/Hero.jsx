@@ -16,29 +16,43 @@ const Hero = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-wider text-primary-600 uppercase bg-primary-500/10 border border-primary-500/20 rounded-full"
-                    >
-                        Transforming Ideas into Digital Reality
-                    </motion.div>
+                    <div className="flex items-center gap-4 mb-6">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                            className="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-bold tracking-wider text-primary-600 uppercase bg-primary-500/10 border border-primary-500/20 rounded-full"
+                        >
+                            Transforming Ideas
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.3 }}
+                            className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold tracking-wider text-green-600 dark:text-green-400 uppercase bg-green-500/10 border border-green-500/20 rounded-full"
+                        >
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            Available for Work
+                        </motion.div>
+                    </div>
                     <h1 className="text-6xl lg:text-8xl font-extrabold leading-[1.1] mb-8 text-slate-900 dark:text-white tracking-tight">
                         Building Future <br />
                         <span className="text-gradient">Digital Solutions</span>
                     </h1>
                     <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-400 mb-10 max-w-xl leading-relaxed font-medium">
-                        I am <span className="text-slate-900 dark:text-white font-bold underline decoration-primary-500/30 decoration-4 underline-offset-4">Tilahun Sitotaw</span>, a visionary developer crafting high-performance full-stack applications and AI-driven systems.
+                        I am <span className="text-slate-900 dark:text-white font-bold underline decoration-primary-500/40 decoration-4 underline-offset-4 hover:decoration-primary-500 transition-colors">Tilahun Sitotaw</span>, a visionary developer crafting high-performance full-stack applications and AI-driven systems tailored for modern needs.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-6">
-                        <motion.div whileHover={{ scale: 1.02, translateY: -2 }} whileTap={{ scale: 0.98 }}>
+                        <motion.div whileHover={{ scale: 1.05, translateY: -2 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto hover-glow">
                             <Link
                                 to="/contact"
-                                className="w-full sm:w-auto px-10 py-5 bg-primary-600 hover:bg-primary-700 text-white rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-primary-500/40 transition-all text-lg"
+                                className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 text-white rounded-2xl font-bold flex items-center justify-center gap-3 shadow-[0_20px_40px_-15px_rgba(14,165,233,0.5)] transition-all text-lg"
                             >
-                                Let's Talk <ArrowRight size={22} />
+                                Let's Talk <ArrowRight size={22} className="animate-pulse" />
                             </Link>
                         </motion.div>
                         <div className="flex items-center gap-4">
@@ -53,11 +67,12 @@ const Hero = () => {
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.1, translateY: -3 }}
-                                    className="p-4 bg-white dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-primary-500/20 hover:text-primary-600 transition-all text-slate-600 dark:text-slate-400 border border-slate-100 dark:border-slate-800"
+                                    whileHover={{ scale: 1.15, rotate: 5, translateY: -4 }}
+                                    className="p-4 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md rounded-2xl shadow-sm hover:shadow-[0_10px_30px_-10px_rgba(14,165,233,0.4)] hover:text-primary-500 hover:border-primary-500/30 transition-all text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 relative group overflow-hidden"
                                     title={social.label}
                                 >
-                                    <social.icon size={24} />
+                                    <div className="absolute inset-0 bg-primary-500/10 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300 ease-in-out"></div>
+                                    <social.icon size={24} className="relative z-10" />
                                 </motion.a>
                             ))}
                         </div>

@@ -59,21 +59,37 @@ const About = () => {
                                 </p>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-6 pt-6">
-                                <div className="p-6 rounded-3xl glass hover:shadow-xl transition-all duration-500 group/card">
-                                    <h3 className="text-4xl font-black text-primary-600 mb-1 group-hover/card:scale-110 transition-transform origin-left">3+</h3>
-                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Years Experience</p>
+                            <div className="grid grid-cols-2 gap-6 pt-6 mb-6">
+                                <div className="relative group/card">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-cyan-500/20 rounded-3xl blur-xl transition-all duration-300 opacity-0 group-hover/card:opacity-100"></div>
+                                    <div className="p-6 rounded-3xl glass hover:shadow-[0_15px_30px_-10px_rgba(14,165,233,0.3)] transition-all duration-500 relative z-10 bg-white/80 dark:bg-slate-900/80">
+                                        <h3 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-cyan-500 mb-2 group-hover/card:scale-110 transition-transform origin-left">3+</h3>
+                                        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Years Experience</p>
+                                    </div>
                                 </div>
-                                <div className="p-6 rounded-3xl glass hover:shadow-xl transition-all duration-500 group/card">
-                                    <h3 className="text-4xl font-black text-primary-600 mb-1 group-hover/card:scale-110 transition-transform origin-left">10+</h3>
-                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Core Projects</p>
+                                <div className="relative group/card">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-xl transition-all duration-300 opacity-0 group-hover/card:opacity-100"></div>
+                                    <div className="p-6 rounded-3xl glass hover:shadow-[0_15px_30px_-10px_rgba(14,165,233,0.3)] transition-all duration-500 relative z-10 bg-white/80 dark:bg-slate-900/80">
+                                        <h3 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500 mb-2 group-hover/card:scale-110 transition-transform origin-left">10+</h3>
+                                        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Core Projects</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="pt-4 flex gap-4 items-center text-slate-600 dark:text-slate-400">
-                                <span className="font-semibold">Project Management:</span>
-                                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold text-primary-600">AGILE</span>
-                                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold text-primary-600">SCRUM</span>
+                            <div className="flex flex-col sm:flex-row gap-6 pt-4 items-center justify-between border-t border-slate-100 dark:border-slate-800">
+                                <div className="flex gap-4 items-center text-slate-600 dark:text-slate-400">
+                                    <span className="font-semibold text-sm uppercase tracking-wider">Methodologies:</span>
+                                    <span className="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-xs font-bold text-primary-600">AGILE</span>
+                                    <span className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-xs font-bold text-cyan-600">SCRUM</span>
+                                </div>
+                                <motion.a
+                                    href="#"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="px-6 py-3 rounded-full font-bold text-sm bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-lg hover:shadow-primary-500/30 transition-all flex items-center gap-2"
+                                >
+                                    Download CV
+                                </motion.a>
                             </div>
                         </div>
                     </motion.div>

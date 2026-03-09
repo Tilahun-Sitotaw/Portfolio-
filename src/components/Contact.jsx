@@ -90,8 +90,9 @@ const Contact = () => {
                         </div>
 
                         <div className="lg:col-span-3">
-                            <form onSubmit={handleSubmit} className="glass p-8 rounded-3xl space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <form onSubmit={handleSubmit} className="glass relative p-8 rounded-3xl space-y-6 overflow-hidden bg-white/80 dark:bg-slate-900/80">
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-[80px] -z-10"></div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
                                     <div className="space-y-2">
                                         <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Your Name</label>
                                         <input
@@ -100,7 +101,7 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             placeholder="John Doe"
-                                            className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all dark:text-white"
+                                            className="w-full px-6 py-4 bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all dark:text-white backdrop-blur-sm"
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -111,7 +112,7 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             placeholder="john@example.com"
-                                            className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all dark:text-white"
+                                            className="w-full px-6 py-4 bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all dark:text-white backdrop-blur-sm"
                                         />
                                     </div>
                                 </div>
@@ -123,15 +124,17 @@ const Contact = () => {
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         placeholder="Tell me about your project..."
-                                        className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-2 focus:ring-primary-500 outline-none transition-all dark:text-white resize-none"
+                                        className="w-full px-6 py-4 bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all dark:text-white resize-none backdrop-blur-sm"
                                     ></textarea>
                                 </div>
 
-                                <button
+                                <motion.button
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
                                     disabled={status === 'loading'}
-                                    className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all ${status === 'success' ? 'bg-green-500 text-white' :
-                                        status === 'error' ? 'bg-red-500 text-white' :
-                                            'bg-primary-600 hover:bg-primary-700 text-white shadow-lg shadow-primary-500/20'
+                                    className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all relative z-10 ${status === 'success' ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg shadow-green-500/30' :
+                                        status === 'error' ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg shadow-red-500/30' :
+                                            'bg-gradient-to-r from-primary-600 to-cyan-500 hover:from-primary-500 hover:to-cyan-400 text-white shadow-[0_20px_40px_-15px_rgba(14,165,233,0.5)]'
                                         }`}
                                 >
                                     {status === 'loading' ? (
@@ -143,7 +146,7 @@ const Contact = () => {
                                     ) : (
                                         <>Send Message <Send size={20} /></>
                                     )}
-                                </button>
+                                </motion.button>
                             </form>
                         </div>
                     </div>
