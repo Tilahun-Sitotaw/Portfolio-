@@ -88,33 +88,66 @@ const Hero = () => {
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                     className="relative flex justify-center lg:justify-end"
                 >
-                    <div className="relative w-full aspect-[4/5] max-w-[480px]">
-                        {/* Layered Glass Frame */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-purple-500/20 rounded-[3rem] blur-2xl -z-10 animate-glow"></div>
-                        <div className="relative h-full w-full rounded-[3rem] overflow-hidden border-2 border-white/20 dark:border-white/10 shadow-2xl backdrop-blur-md">
+                    <motion.div
+                        animate={{
+                            y: [0, -15, 0],
+                        }}
+                        transition={{
+                            duration: 5,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                        className="relative w-full aspect-[4/5] max-w-[480px] p-2"
+                    >
+                        {/* Advanced Aura/Glow Glow */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/30 via-indigo-500/20 to-purple-500/30 rounded-[3rem] blur-3xl opacity-50 animate-pulse"></div>
+                        <div className="absolute -inset-4 bg-primary-500/10 rounded-[4rem] blur-[80px] opacity-30 animate-pulse animation-delay-2000"></div>
+
+                        {/* Image Container with Premium Frame */}
+                        <div className="relative h-full w-full rounded-[3rem] overflow-hidden border-2 border-white/20 dark:border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] backdrop-blur-sm group">
                             <img
                                 src="/images/profile.jpg"
                                 alt="Tilahun Sitotaw"
-                                className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-1000 ease-in-out"
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 dark:from-[#050b1a] via-transparent to-transparent opacity-60"></div>
 
-                            {/* Floating Stats or Tech Tag */}
-                            <div className="absolute bottom-6 left-6 right-6 p-4 glass rounded-2xl border border-white/20 dark:border-white/10">
-                                <p className="text-slate-900 dark:text-white font-black text-xs uppercase tracking-widest mb-1">Status</p>
-                                <p className="text-primary-600 dark:text-primary-400 font-bold text-sm">Building AI Ecosystems</p>
+                            {/* Sophisticated Overlays */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 dark:from-[#050b1a] via-transparent to-transparent opacity-80"></div>
+                            <div className="absolute inset-0 ring-1 ring-inset ring-white/20 rounded-[3rem]"></div>
+
+                            {/* Premium Status Badge */}
+                            <div className="absolute bottom-4 left-4 right-4 p-4 glass rounded-2xl border border-white/20 dark:border-white/10 overflow-hidden">
+                                <div className="absolute inset-0 bg-primary-500/5 animate-pulse"></div>
+                                <div className="relative z-10 flex flex-col gap-1">
+                                    <div className="flex items-center gap-2">
+                                        <span className="w-2 h-2 bg-primary-500 rounded-full animate-ping"></span>
+                                        <p className="text-slate-900 dark:text-white font-black text-[10px] uppercase tracking-widest opacity-70">Current Status</p>
+                                    </div>
+                                    <p className="text-primary-600 dark:text-primary-400 font-extrabold text-sm sm:text-base tracking-tight italic">
+                                        Building AI Ecosystems
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Abstract Decor */}
-                        <div className="absolute -top-6 -right-6 w-32 h-32 border-t-4 border-r-4 border-primary-500/30 rounded-tr-[3rem]"></div>
-                        <div className="absolute -bottom-6 -left-6 w-32 h-32 border-b-4 border-l-4 border-indigo-500/30 rounded-bl-[3rem]"></div>
-                    </div>
+                        {/* High-Tech Decorative Accents */}
+                        <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-primary-500/40 rounded-tr-[3rem]"></div>
+                        <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-indigo-500/40 rounded-bl-[3rem]"></div>
+
+                        {/* Floating Tech Badges (Abstract Labels) */}
+                        <motion.div
+                            animate={{ y: [0, 8, 0] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute -top-10 left-10 py-2 px-4 glass rounded-lg border border-white/20 dark:border-white/10 text-xs font-black text-primary-500 dark:text-primary-400 uppercase tracking-tighter"
+                        >
+                            Innovation
+                        </motion.div>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>
