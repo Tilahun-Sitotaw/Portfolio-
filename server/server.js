@@ -6,7 +6,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// Configure CORS for security
+app.use(cors({
+    origin: process.env.FRONTEND_URL || '*',
+    methods: ['POST', 'GET'],
+    credentials: true
+}));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
@@ -15,13 +21,17 @@ const PORT = process.env.PORT || 5000;
 app.post('/api/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
-    // Create a transporter using your email service (e.g., Gmail)
+    // Create a robust transporter for cloud environment
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 465, // SSL port
+        secure: true,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
+        connectionTimeout: 10000, // 10 seconds timeout
+        greetingTimeout: 10000,
     });
 
     const mailOptions = {
