@@ -21,17 +21,18 @@ const PORT = process.env.PORT || 5000;
 app.post('/api/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
-    // Create a robust transporter for cloud environment
+    const isSecure = (process.env.SMTP_PORT === '465');
+
+    // Create a robust transporter using Brevo (Sendinblue) or Gmail
     const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465, // SSL port
-        secure: true,
+        host: process.env.SMTP_HOST || 'smtp.gmail.com',
+        port: parseInt(process.env.SMTP_PORT || '465'),
+        secure: isSecure,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
-        connectionTimeout: 10000, // 10 seconds timeout
-        greetingTimeout: 10000,
+        connectionTimeout: 30000,
     });
 
     const mailOptions = {

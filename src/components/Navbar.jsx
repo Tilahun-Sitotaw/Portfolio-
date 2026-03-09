@@ -79,25 +79,36 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
             {/* Mobile Menu */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden glass border-t border-white/10"
-                    >
-                        <div className="flex flex-col p-6 space-y-4">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.path}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="text-lg font-medium text-slate-700 dark:text-slate-200"
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </div>
-                    </motion.div>
+                    <>
+                        {/* Backdrop to close on click outside */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[-1] md:hidden"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="md:hidden glass border-t border-white/10 shadow-2xl overflow-hidden"
+                        >
+                            <div className="flex flex-col p-8 space-y-6">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.name}
+                                        to={link.path}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="text-xl font-bold tracking-tight text-slate-800 dark:text-white flex justify-between items-center group/nav"
+                                    >
+                                        {link.name}
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-500 opacity-0 group-hover/nav:opacity-100 transition-opacity" />
+                                    </Link>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </nav>
