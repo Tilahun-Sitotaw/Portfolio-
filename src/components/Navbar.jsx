@@ -55,10 +55,10 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                     className="flex items-center gap-3 relative z-50"
                 >
                     <Link to="/" className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg border-2 border-primary-500/20 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-lg border-2 border-primary-500/20 group-hover:scale-110 transition-transform duration-300">
                             <img src="/images/logo.png" alt="Logo" className="w-full h-full object-cover" />
                         </div>
-                        <span className="text-xl font-black tracking-tighter text-slate-900 dark:text-white hidden sm:block">
+                        <span className="text-lg sm:text-xl font-black tracking-tighter text-slate-900 dark:text-white">
                             TILAHUN<span className="text-primary-500">.</span>
                         </span>
                     </Link>
