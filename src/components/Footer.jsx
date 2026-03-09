@@ -29,9 +29,12 @@ const Footer = () => {
                     </button>
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-slate-50 dark:border-slate-800/50 text-center">
-                    <p className="text-slate-400 text-sm">
-                        © {new Date().getFullYear()} Tilahun Sitotaw Gobezie. Built with React & Tailwind CSS.
+                <div className="mt-12 pt-8 border-t border-slate-50 dark:border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                    <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
+                        &copy; {new Date().getFullYear()} Tilahun Sitotaw Gobezie. All rights reserved.
+                    </p>
+                    <p className="text-slate-400 dark:text-slate-500 text-sm flex items-center gap-1.5">
+                        Crafted with <span className="text-primary-500 font-semibold">React</span>, <span className="text-green-500 font-semibold">Node.js</span> & <span className="text-cyan-500 font-semibold">Tailwind CSS</span>
                     </p>
                 </div>
             </div>

@@ -14,6 +14,20 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleScrollTo = (e, href) => {
+        e.preventDefault();
+        setIsMobileMenuOpen(false);
+        if (href === '#') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        const targetId = href.replace('#', '');
+        const elem = document.getElementById(targetId);
+        if (elem) {
+            elem.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const navLinks = [
         { name: 'Home', href: '#' },
         { name: 'About', href: '#about' },
@@ -44,6 +58,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                         <motion.a
                             key={link.name}
                             href={link.href}
+                            onClick={(e) => handleScrollTo(e, link.href)}
                             whileHover={{ scale: 1.05 }}
                             className="text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors"
                         >
@@ -89,7 +104,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    onClick={(e) => handleScrollTo(e, link.href)}
                                     className="text-lg font-medium text-slate-700 dark:text-slate-200"
                                 >
                                     {link.name}

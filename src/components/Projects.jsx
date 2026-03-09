@@ -1,14 +1,21 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Monitor, ShoppingCart, Map, Sprout } from 'lucide-react';
+import { ExternalLink, Github, Monitor, ShoppingCart, Map, Sprout, Factory } from 'lucide-react';
 
 const Projects = () => {
     const projects = [
         {
             title: "AgroChain Ethiopia",
             description: "A secure agricultural supply chain platform with Real-time Chat, MongoDB Atlas integration, and Cloudinary media management. Focused on transparency and full-stack excellence.",
-            tech: ["React", "Express", "MongoDB", "Tailwind", "Socket.io"],
+            tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind", "Socket.io"],
             icon: <Sprout className="text-emerald-500" />,
             link: "https://agrochain-client-orz8.onrender.com"
+        },
+        {
+            title: "ASF Textile Factory",
+            description: "A digital hub and smart manufacturing platform for redefining East African manufacturing with smart automation and digital supply chain excellence.",
+            tech: ["React", "Vite", "Node.js", "Express", "MongoDB", "Tailwind"],
+            icon: <Factory className="text-blue-500" />,
+            link: "https://asf-textile-factory-deployment.onrender.com/"
         },
         {
             title: "Student Management System",
@@ -64,12 +71,17 @@ const Projects = () => {
                                         <div className="p-5 bg-primary-50 dark:bg-primary-900/30 rounded-[1.5rem] group-hover:scale-110 transition-transform duration-500">
                                             {project.icon}
                                         </div>
-                                        <div className="flex gap-2">
-                                            {project.tech.slice(0, 3).map((t, i) => (
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tech.slice(0, 4).map((t, i) => (
                                                 <span key={i} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
                                                     {t}
                                                 </span>
                                             ))}
+                                            {project.tech.length > 4 && (
+                                                <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                                                    +{project.tech.length - 4}
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
 
@@ -79,22 +91,27 @@ const Projects = () => {
                                     </p>
 
                                     <div className="flex items-center gap-4">
-                                        <a
-                                            href={project.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex-1 py-4 px-8 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold hover:bg-primary-600 dark:hover:bg-primary-500 transition-all text-center shadow-lg shadow-black/5 dark:shadow-white/5 active:scale-95"
-                                        >
-                                            View Live
-                                        </a>
+                                        {project.link !== "#" && (
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1 py-4 px-8 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold hover:bg-primary-600 dark:hover:bg-primary-500 transition-all text-center shadow-lg shadow-black/5 dark:shadow-white/5 active:scale-95"
+                                            >
+                                                View Live
+                                            </a>
+                                        )}
                                         <a
                                             href="https://github.com/Tilahun-Sitotaw"
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="p-4 glass rounded-2xl text-slate-900 dark:text-slate-100 hover:text-primary-600 transition-all border border-slate-200 dark:border-slate-800"
+                                            className={`p-4 glass rounded-2xl text-slate-900 dark:text-slate-100 hover:text-primary-600 transition-all border border-slate-200 dark:border-slate-800 ${project.link === "#" ? "flex-1" : ""}`}
                                             title="View Code"
                                         >
-                                            <Github size={24} />
+                                            <div className="flex justify-center items-center gap-2">
+                                                <Github size={24} />
+                                                {project.link === "#" && <span className="font-bold">View Source Code</span>}
+                                            </div>
                                         </a>
                                     </div>
                                 </div>

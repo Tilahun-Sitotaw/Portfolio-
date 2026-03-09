@@ -34,6 +34,10 @@ const Hero = () => {
                     <div className="flex flex-col sm:flex-row items-center gap-6">
                         <motion.a
                             href="#contact"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                             whileHover={{ scale: 1.02, translateY: -2 }}
                             whileTap={{ scale: 0.98 }}
                             className="w-full sm:w-auto px-10 py-5 bg-primary-600 hover:bg-primary-700 text-white rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-primary-500/40 transition-all text-lg"
