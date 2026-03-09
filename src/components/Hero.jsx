@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Send, Instagram, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -32,18 +33,14 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-6">
-                        <motion.a
-                            href="#contact"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                            whileHover={{ scale: 1.02, translateY: -2 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto px-10 py-5 bg-primary-600 hover:bg-primary-700 text-white rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-primary-500/40 transition-all text-lg"
-                        >
-                            Let's Talk <ArrowRight size={22} />
-                        </motion.a>
+                        <motion.div whileHover={{ scale: 1.02, translateY: -2 }} whileTap={{ scale: 0.98 }}>
+                            <Link
+                                to="/contact"
+                                className="w-full sm:w-auto px-10 py-5 bg-primary-600 hover:bg-primary-700 text-white rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-primary-500/40 transition-all text-lg"
+                            >
+                                Let's Talk <ArrowRight size={22} />
+                            </Link>
+                        </motion.div>
                         <div className="flex items-center gap-4">
                             {[
                                 { icon: Github, href: "https://github.com/Tilahun-Sitotaw", label: "GitHub" },

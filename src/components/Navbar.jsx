@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -14,26 +15,12 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleScrollTo = (e, href) => {
-        e.preventDefault();
-        setIsMobileMenuOpen(false);
-        if (href === '#') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            return;
-        }
-        const targetId = href.replace('#', '');
-        const elem = document.getElementById(targetId);
-        if (elem) {
-            elem.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
     const navLinks = [
-        { name: 'Home', href: '#' },
-        { name: 'About', href: '#about' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Home', path: '/' },
+        { name: 'About', path: '/about' },
+        { name: 'Skills', path: '/skills' },
+        { name: 'Projects', path: '/project' },
+        { name: 'Contact', path: '/contact' },
     ];
 
     return (
@@ -55,15 +42,14 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center space-x-8">
                     {navLinks.map((link) => (
-                        <motion.a
-                            key={link.name}
-                            href={link.href}
-                            onClick={(e) => handleScrollTo(e, link.href)}
-                            whileHover={{ scale: 1.05 }}
-                            className="text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors"
-                        >
-                            {link.name}
-                        </motion.a>
+                        <motion.div key={link.name} whileHover={{ scale: 1.05 }}>
+                            <Link
+                                to={link.path}
+                                className="text-slate-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 font-medium transition-colors"
+                            >
+                                {link.name}
+                            </Link>
+                        </motion.div>
                     ))}
                     <button
                         onClick={toggleDarkMode}
@@ -101,14 +87,14 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                     >
                         <div className="flex flex-col p-6 space-y-4">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
-                                    href={link.href}
-                                    onClick={(e) => handleScrollTo(e, link.href)}
+                                    to={link.path}
+                                    onClick={() => setIsMobileMenuOpen(false)}
                                     className="text-lg font-medium text-slate-700 dark:text-slate-200"
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </motion.div>
