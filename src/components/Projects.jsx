@@ -15,7 +15,7 @@ const Projects = () => {
             description: "A digital hub and smart manufacturing platform for redefining East African manufacturing with smart automation and digital supply chain excellence.",
             tech: ["React", "Vite", "Node.js", "Express", "MongoDB", "Tailwind"],
             icon: <Factory className="text-blue-500" />,
-            link: "https://asf-textile-factory-deployment.onrender.com/"
+            link: "https://asf-textile-factory-com-et.onrender.com"
         },
         {
             title: "Student Management System",
